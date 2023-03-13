@@ -9,29 +9,22 @@ To begin work on this ticket, make sure you have finished:
 
 Deliver the following: 
 
-- Integrate this frontend application with an API. 
-- Rework redux and data visualizations to use an API instead of `test_data.json`.
+- Integrate the Auth0 microservice into the project.
+- Establish a `Profile Page` that only appears on the navigation menu if a user is logged in. 
+- The `Profile Page` should display some basic info on the logged in user. 
+- There should be a Login/Logout button in the navigation menu that redirects you to Auth0 to login. 
 
-### Relevant Files
+### Relevant Guides
 
-You must inspect the code in `src/components/pages/DataVisualizations`, `src/data`, and `src/state` to ensure that the application is pulling data from an API and not the dummy data file. 
+The following guide from Auth0 will show you how to proceed from start to finish: `https://auth0.com/blog/complete-guide-to-react-user-authentication/`.
 
 ### Guidance
 
-Widely-used applications use robust APIs to get data. It is your job to integrate the provided API into this application and ensure everything works properly after integration. 
-
-> API LINK: https://hrf-asylum-be-b.herokuapp.com/cases
-
-Endpoints: 
-
-- Fiscal Year Data: `/fiscalSummary`
-- Citizenship Data: `/citizenshipSummary`
-
-If you look at `src/data/text_data.json`, there are 2 JSON blobs, 1 for fiscal year data and the other for citizenship data. Make sure to use the correct data for each data viz. 
+Many companies use third-party microservices to establish auth in their application. Your job is establish authentication for this application using the popular auth service: Auth0. You can create a free account with Auth0 for this task. After ensuring the login/logout flow works, you will create a profile page that displays user info using the `useAuth0()` hook and dynamically displays based on the logged in user. 
 
 You must: 
 
-1. Ensure everything is working properly after the API integration. Components should render correctly and show the data the same way they did before. 
+1. Ensure everything is working properly after the Auth0 integration. Components should render correctly and show the data the same way they did before. 
 
 2. Do not use a Node version higher than 16.16.0. If you are, you can use `nvm` (for Mac) or `nvm-windows` to easily toggle your node versions in directories. 
 
@@ -41,5 +34,5 @@ You must:
 
 Submit the following in your course: 
 
-- Link to your forked repo with the fixed code for the graphs page
+- Link to your forked repo with the code for the new profile page and auth integration
 - Link to a Loom video answering the prompt in the `Submit Your Deliverables` assignment in your course

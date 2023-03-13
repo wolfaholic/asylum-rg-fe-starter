@@ -1,4 +1,4 @@
-# Build Sprint 3
+# Build Sprint 2
 
 To begin work on this ticket, make sure you have finished: 
 1. Getting locally setup. 
@@ -11,7 +11,7 @@ Deliver the following:
 
 - Integrate this frontend application with an API. 
 - Rework redux and data visualizations to use an API instead of `test_data.json`.
-- The graphs on the graphs page should display after the integration.
+- The graphs on the Graphs page should display after the integration.
 
 ### Relevant Files
 

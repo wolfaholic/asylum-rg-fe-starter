@@ -7,7 +7,6 @@ import HrfPhoto from '../../../styles/Images/paper-stack.jpg';
 import '../../../styles/RenderLandingPage.less';
 import { Button } from 'antd';
 import { useHistory } from 'react-router-dom';
-
 // for the purposes of testing PageNav
 // import PageNav from '../../common/PageNav';
 
@@ -18,16 +17,6 @@ function RenderLandingPage(props) {
   };
 
   const history = useHistory();
-
-  const handleDownload = () => {
-    const url = 'http://localhost:3000/COW2021001887-I589Data.csv';
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'data.csv';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
 
   return (
     <div className="main">
@@ -43,25 +32,15 @@ function RenderLandingPage(props) {
       </div>
 
       {/* Graphs Section: Add code here for the graphs section for your first ticket */}
-
-      <div className="graphs-section">
-        <div className="view-more-data-btn-container">
-          <Button
-            type="default"
-            style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
-            onClick={() => history.push('/graphs')}
-          >
-            View the Data
-          </Button>
-
-          <Button
-            type="default"
-            style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
-            onClick={handleDownload}
-          >
-            Download the Data
-          </Button>
-        </div>
+      {/* <div className="graphs-section"> */}
+      <div className="view-more-data-btn-container">
+        <Button
+          type="default"
+          style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+          onClick={() => history.push('/graphs')}
+        >
+          View the Data
+        </Button>
       </div>
 
       <div className="middle-section">

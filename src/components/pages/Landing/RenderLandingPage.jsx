@@ -6,6 +6,8 @@ import HrfPhoto from '../../../styles/Images/paper-stack.jpg';
 import '../../../styles/RenderLandingPage.less';
 import { Button } from 'antd';
 import { useHistory } from 'react-router-dom';
+import useHandleDownload from './../../../data/useHandleDownload';
+
 // for the purposes of testing PageNav
 // import PageNav from '../../common/PageNav';
 
@@ -16,6 +18,7 @@ function RenderLandingPage(props) {
   };
 
   const history = useHistory();
+  const handleDownload = useHandleDownload();
 
   return (
     <div className="main">
@@ -67,6 +70,13 @@ function RenderLandingPage(props) {
           onClick={() => history.push('/graphs')}
         >
           View the Data
+        </Button>
+        <Button
+          type="default"
+          style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+          onClick={handleDownload}
+        >
+          Download Data
         </Button>
       </div>
       {/* End Graphs*/}

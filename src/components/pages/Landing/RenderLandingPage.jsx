@@ -33,26 +33,29 @@ function RenderLandingPage(props) {
       {/* Graphs Section */}
       <div className="graphs-section">
         <>
-          <div>
+          <div className="graph-image-card">
             <img
               src={GrantRatesByOfficeImg}
               className="grant-office-image graph-image"
               alt="Grants Rate by Office Bar Chart img"
             />
+            <span className="graph-title">Grant Rates by Office</span>
           </div>
-          <div>
+          <div className="graph-image-card">
             <img
               src={GrantRatesByNationalityImg}
               className="grants-nationality-image graph-image"
               alt="Grants Rate by Nationality Pie Chart img"
             />
+            <span className="graph-title">Grant Rates by Office</span>
           </div>
-          <div>
+          <div className="graph-image-card">
             <img
               src={GrantRatesOverTimeImg}
               className="grant-overtime-image graph-image"
               alt="Grants Rate Over Time Line Graph Chart img"
             />
+            <span className="graph-title">Grant Rates by Office</span>
           </div>
         </>
       </div>

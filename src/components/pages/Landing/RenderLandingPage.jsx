@@ -1,8 +1,7 @@
 import React from 'react';
-// ADD IMPORTS BACK FOR GRAPHS SECTION
-// import GrantRatesByOfficeImg from '../../../styles/Images/bar-graph-no-text.png';
-// import GrantRatesByNationalityImg from '../../../styles/Images/pie-chart-no-text.png';
-// import GrantRatesOverTimeImg from '../../../styles/Images/line-graph-no-text.png';
+import GrantRatesByOfficeImg from '../../../styles/Images/bar-graph-no-text.png';
+import GrantRatesByNationalityImg from '../../../styles/Images/pie-chart-no-text.png';
+import GrantRatesOverTimeImg from '../../../styles/Images/line-graph-no-text.png';
 import HrfPhoto from '../../../styles/Images/paper-stack.jpg';
 import '../../../styles/RenderLandingPage.less';
 import { Button } from 'antd';
@@ -29,10 +28,11 @@ function RenderLandingPage(props) {
             explore USCIS data on Asylum Office decisions
           </h3>
         </div>
-      </div>
-
-      {/* Graphs Section: Add code here for the graphs section for your first ticket */}
-      {/* <div className="graphs-section"> */}
+      </div>{' '}
+      {/* End of Header*/}
+      {/* Graphs Section */}
+      <div className="graphs-section"></div>
+      {/* Buttons */}
       <div className="view-more-data-btn-container">
         <Button
           type="default"
@@ -42,7 +42,8 @@ function RenderLandingPage(props) {
           View the Data
         </Button>
       </div>
-
+      {/* End Graphs*/}
+      {/* Middle Section */}
       <div className="middle-section">
         <div className="hrf-img-container">
           <img src={HrfPhoto} alt="Human Rights First" className="hrf-img" />
@@ -58,15 +59,18 @@ function RenderLandingPage(props) {
             the data set
           </h3>
         </div>
-      </div>
+      </div>{' '}
+      {/* End of Middle Section */}
+      {/* Bottom Section */}
       <div>
-        {/* Bottom Section: Add code here for the graphs section for your first ticket */}
-        {/* <div className="bottom-section">*/}
-        <p onClick={() => scrollToTop()} className="back-to-top">
-          Back To Top ^
-        </p>
+        <div className="bottom-section">
+          <p onClick={() => scrollToTop()} className="back-to-top">
+            Back To Top ^
+          </p>
+        </div>
       </div>
-    </div>
+    </div> // End of Main
   );
 }
+
 export default RenderLandingPage;

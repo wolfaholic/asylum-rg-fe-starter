@@ -31,7 +31,31 @@ function RenderLandingPage(props) {
       </div>{' '}
       {/* End of Header*/}
       {/* Graphs Section */}
-      <div className="graphs-section"></div>
+      <div className="graphs-section">
+        <>
+          <div>
+            <img
+              src={GrantRatesByOfficeImg}
+              className="grant-office-image graph-image"
+              alt="Grants Rate by Office Bar Chart img"
+            />
+          </div>
+          <div>
+            <img
+              src={GrantRatesByNationalityImg}
+              className="grants-nationality-image graph-image"
+              alt="Grants Rate by Nationality Pie Chart img"
+            />
+          </div>
+          <div>
+            <img
+              src={GrantRatesOverTimeImg}
+              className="grant-overtime-image graph-image"
+              alt="Grants Rate Over Time Line Graph Chart img"
+            />
+          </div>
+        </>
+      </div>
       {/* Buttons */}
       <div className="view-more-data-btn-container">
         <Button

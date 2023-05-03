@@ -49,28 +49,34 @@ function GraphWrapper(props) {
         break;
     }
   }
-  async function updateStateWithNewData(view, office, stateSettingCallback) {
+  function updateStateWithNewData(years, view, office, stateSettingCallback) {
     if (office === 'all' || !office) {
-      const [firstResponse, secondResponse] = await Promise.all([
-        axios.get(process.env.REACT_APP_API_URI + '/fiscalSummary'),
-        axios.get(process.env.REACT_APP_API_URI + '/citizenshipSummary'),
-      ]);
-
-      let data = firstResponse.data;
-      data.citizenshipResults = secondResponse.data;
-      stateSettingCallback(view, office, data);
+      axios
+        .get(process.env.REACT_APP_API_URI, {})
+        .then(result => {
+          stateSettingCallback(view, office, result.data); // Replaced Test Data with Result.Data - Mackie
+        })
+        .catch(err => {
+          console.error(err);
+        });
     } else {
-      const [firstResponse, secondResponse] = await Promise.all([
-        axios.get(process.env.REACT_APP_API_URI + '/fiscalSummary'),
-        axios.get(process.env.REACT_APP_API_URI + '/citizenshipSummary'),
-      ]);
-
-      let data = firstResponse.data;
-      data.citizenshipResults = secondResponse.data;
-      stateSettingCallback(view, office, data);
+      axios
+        .get(process.env.REACT_APP_API_URI, {
+          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
+          params: {
+            from: years[0],
+            to: years[1],
+            office: office,
+          },
+        })
+        .then(result => {
+          stateSettingCallback(view, office, result.data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
+        })
+        .catch(err => {
+          console.error(err);
+        });
     }
   }
-
   const clearQuery = (view, office) => {
     dispatch(resetVisualizationQuery(view, office));
   };

@@ -111,52 +111,6 @@ function YearLimitsSelect(props) {
           // alignItems: 'center',
         }}
       >
-        {/* <Form.Item
-          label="From:"
-          name="year_start"
-          rules={[
-            { required: true },
-            // {
-            //   validator: (_, value) => {
-            //     return value &&
-            //       parseInt(value) === value &&
-            //       value >= 2015 &&
-            //       value <= 2022
-            //       ? Promise.resolve()
-            //       : Promise.reject(
-            //           'Please enter a year between 2015 and 2022.'
-            //         );
-            //   },
-            // },
-          ]}
-          onChange={e => yearInputsOnChange(view, office, e)}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          label="To:"
-          name="year_end"
-          style={{ marginLeft: '17px' }}
-          rules={[
-            { required: true },
-            // {
-            //   validator: (_, value) => {
-            //     return value &&
-            //       parseInt(value) === value &&
-            //       value >= 2015 &&
-            //       value <= 2022 &&
-            //       value > form.getFieldValue('year_start')
-            //       ? Promise.resolve()
-            //       : Promise.reject(
-            //           "Please enter a year between 2015 and 2022, and after the 'From:' year."
-            //         );
-            //   },
-            // },
-          ]}
-          onChange={e => yearInputsOnChange(view, office, e)}
-        >
-          <Input />
-        </Form.Item> */}
         <Form.Item>
           <Button
             htmlType="submit"

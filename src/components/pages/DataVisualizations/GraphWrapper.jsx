@@ -10,6 +10,7 @@ import YearLimitsSelect from './YearLimitsSelect';
 import ViewSelect from './ViewSelect';
 import axios from 'axios';
 import { resetVisualizationQuery } from '../../../state/actionCreators';
+// import test_data from '../../../data/test_data.json';
 import { colors } from '../../../styles/data_vis_colors';
 import ScrollToTopOnMount from '../../../utils/scrollToTopOnMount';
 
@@ -55,57 +56,73 @@ function GraphWrapper(props) {
     office,
     stateSettingCallback
   ) {
-    try {
-      if (office === 'all' || !office) {
-        if (view === 'citizenship') {
-          const [firstResponse, secondResponse] = await Promise.all([
-            axios.get(
-              `https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary`
-            ),
-            axios.get(
-              `https://hrf-asylum-be-b.herokuapp.com/cases/citizenshipSummary`
-            ),
-          ]);
-          let data = firstResponse.data;
-          data.citizenshipResults = secondResponse.data;
-          stateSettingCallback(view, office, data);
-        } else {
-          const result = await axios.get(
-            `https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary`
-          );
-          stateSettingCallback(view, office, result.data);
-        }
+    URL = 'https://hrf-asylum-be-b.herokuapp.com/cases';
+
+    if (office === 'all' || !office) {
+      if (view === 'citizenship') {
+        axios
+          .get(`${URL}/citizenshipSummary`, {
+            params: {
+              from: years[0],
+              to: years[1],
+            },
+          })
+          .then(res => {
+            stateSettingCallback(view, office, res.data);
+          })
+          .catch(err => {
+            console.error(err);
+          });
       } else {
-        if (view === 'citizenship') {
-          const [firstResponse, secondResponse] = await Promise.all([
-            axios.get(
-              `https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary`
-            ),
-            axios.get(
-              `https://hrf-asylum-be-b.herokuapp.com/cases/citizenshipSummary`
-            ),
-          ]);
-          let data = firstResponse.data;
-          data.citizenshipResults = secondResponse.data;
-          stateSettingCallback(view, office, data);
-        } else {
-          const result = await axios.get(
-            `https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary`,
-            {
-              params: {
-                from: years[0],
-                to: years[1],
-                office: office,
-              },
-            }
-          );
-          stateSettingCallback(view, office, result.data);
-        }
+        axios
+          .get(`${URL}/fiscalSummary`, {
+            params: {
+              from: years[0],
+              to: years[0],
+            },
+          })
+          .then(res => {
+            stateSettingCallback(view, office, res.data);
+          })
+          .catch(err => {
+            console.error(err);
+          });
       }
-    } catch (err) {
-      console.error(err);
+    } else {
+      if (view === 'citizenship') {
+        axios
+          .get(`${URL}/citizenshipSummary`, {
+            params: {
+              from: years[0],
+              to: years[1],
+              office: office,
+            },
+          })
+          .then(res => {
+            stateSettingCallback(view, office, res.data);
+          })
+          .catch(err => {
+            console.error(err);
+          });
+      } else {
+        axios
+          .get(`${URL}/fiscalSummary`, {
+            params: {
+              from: years[0],
+              to: years[0],
+              office: office,
+            },
+          })
+          .then(res => {
+            stateSettingCallback(view, office, res.data);
+          })
+          .catch(err => {
+            console.error(err);
+          });
+      }
     }
   }
+
   const clearQuery = (view, office) => {
     dispatch(resetVisualizationQuery(view, office));
   };

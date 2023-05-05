@@ -16,22 +16,23 @@ function TableRow(props) {
         overflow: 'hidden',
       }}
     >
-      {columns.map((property, index) => {
+      {columns.map((property, idx) => {
         if (row) {
           if (typeof row[property] === 'object') {
             return (
               <SubTable
                 dataObject={row[property]}
                 rowHeight={rowHeight} // so for the SubTablesTable the row should be an object of objects
-                key={index}
+                key={idx}
               />
             );
           } else {
             return (
-              <div key={index} style={{ overflow: 'hidden', flex: '1' }}>
+              <div style={{ overflow: 'hidden', flex: '1' }}>
                 <TableInnerSquare
                   innerData={row[property]}
                   rowHeight={rowHeight}
+                  key={idx}
                 />
               </div>
             );

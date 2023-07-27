@@ -1,4 +1,4 @@
-# Human Rights First: Asylum Report Generator
+# Human Rights First: Asylum Report Generator - Labs Project - BloomTech Institue of Technology
 
 ## North Star
 - A search tool to give a user-friendly view into a large dataset of asylum case decisions.
